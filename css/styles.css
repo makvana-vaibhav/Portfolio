@@ -423,7 +423,7 @@ footer {
 
 /* Project Detail Layout Fixes */
 .detail-hero {
-  padding: 120px 0 80px;
+  padding: 120px 5% 80px;
 }
 
 .detail-hero .split-frame {
@@ -458,7 +458,7 @@ footer {
   }
 
   .detail-grid,
-  .split-frame {
+  .detail-hero .split-frame {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -471,6 +471,10 @@ footer {
 
   header {
     padding: 15px 0;
+  }
+
+  .container {
+    padding: 0 5%;
   }
 
   .nav-links {
