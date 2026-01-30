@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vaibhavm.github.io/portfolio/sitemap.xml
+Sitemap: https://vaibhavmakvana.in/sitemap.xml
