@@ -106,8 +106,8 @@ function renderProjectCards(containerSelector, filterFeatured = false, limit = n
     container.innerHTML = projectsToRender.map(project => `
         <div class="card project-card">
         <div class="project-card-img" style="height: 220px; border-radius: 12px; margin-bottom: 25px; overflow: hidden; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.05);">
-            ${project.image && !project.image.includes('placeholder') && !project.image.includes('cover.jpg') ? 
-                `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;">` :
+            ${project.image && !project.image.includes('placeholder') && !project.image.includes('cover.webp') ? 
+                `<img src="${project.image}" alt="${project.title} – ${project.subtitle || project.category}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">` :
                 `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); color: rgba(255,255,255,0.2); font-weight: 600; font-size: 0.9rem;">${project.title} Preview</div>`
             }
         </div>

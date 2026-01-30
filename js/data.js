@@ -35,7 +35,7 @@ const portfolioData = {
         github: null
       },
       featured: true,
-      image: "img/spotlink.png"
+      image: "img/spotlink.webp"
     },
     {
       id: "kk-enterprise",
@@ -59,7 +59,7 @@ const portfolioData = {
         github: null
       },
       featured: true,
-      image: "img/KK_Fireworks.png"
+      image: "img/KK_Fireworks.webp"
     },
     {
       id: "cfn-pos",
@@ -83,7 +83,7 @@ const portfolioData = {
         github: "https://github.com/makvana-vaibhav/CFN-IceCream-POS-System"
       },
       featured: true,
-      image: "img/CFN.png"
+      image: "img/CFN.webp"
     },
     {
       id: "green-pantry",
@@ -107,7 +107,7 @@ const portfolioData = {
         github: "https://github.com/makvana-vaibhav/The-Green-Pantry"
       },
       featured: true,
-      image: "img/Green_pantry.png"
+      image: "img/Green_pantry.webp"
     },
     {
       id: "shree-ganesh-enterprise",
@@ -130,7 +130,7 @@ const portfolioData = {
         github: "https://github.com/makvana-vaibhav/shree-ganesh-enterprise"
       },
       featured: true,
-      image: "img/sge.png"
+      image: "img/sge.webp"
     },
     {
       id: "js-projects",
@@ -154,7 +154,7 @@ const portfolioData = {
         github: "https://github.com/makvana-vaibhav/js-projects"
       },
       featured: true,
-      image: "img/js-projects.png"
+      image: "img/js-projects.webp"
     }
   ],
   
