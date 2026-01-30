@@ -173,7 +173,7 @@ const portfolioData = {
       "MongoDB",
       "Authentication",
       "JWT",
-      "Web Socket",
+      "WebSocket",
     ],
     tools: [
       "Git",
