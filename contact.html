@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Vaibhav Makvana</title>
+    <meta name="description"
+        content="Get in touch with Vaibhav Makvana for collaborations, freelance work, or recruitment.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .how-i-help {
+            margin-bottom: 50px;
+        }
+
+        .how-i-help h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .help-list {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .help-list li {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+
+        .help-list li i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .contact-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .direct-link {
+            padding: 15px 20px;
+            background: rgba(30, 30, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .direct-link:hover {
+            border-color: var(--accent-color);
+            background: rgba(255, 159, 28, 0.05);
+            transform: translateY(-2px);
+            color: var(--accent-color);
+        }
+
+        .direct-link i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-form-card {
+            background: rgba(30, 30, 30, 0.4);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .availability-note {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .availability-note i {
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">VAIBHAV<span class="text-accent">.</span></a>
+            <div class="nav-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-hero" style="padding: 120px 0 100px;">
+            <div class="container">
+                <span class="text-accent"
+                    style="font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Contact</span>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 20px; line-height: 1.1;">Let's talk
+                    about<br>your project.</h1>
+
+                <div class="contact-grid">
+                    <!-- Left Column: Info & Links -->
+                    <div class="contact-info-section">
+                        <div class="how-i-help">
+                            <h3>How I Can Help</h3>
+                            <ul class="help-list">
+                                <li><i class="fas fa-check"></i> Web Application Architecture</li>
+                                <li><i class="fas fa-check"></i> Full-stack Backend Integration</li>
+                                <li><i class="fas fa-check"></i> Clean, Minimal UI Development</li>
+                                <li><i class="fas fa-check"></i> Database & API Optimization</li>
+                            </ul>
+                        </div>
+
+                        <p class="text-muted"
+                            style="font-size: 1.1rem; line-height: 1.7; max-width: 500px; margin-bottom: 40px;">
+                            I'm passionate about building products that are fast, accessible, and designed for growth.
+                            Drop me a message and let's work together.
+                        </p>
+
+                        <div class="contact-links-grid">
+                            <a href="mailto:vaibhavmakvana14118@gmail.com" class="direct-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email Me</span>
+                            </a>
+                            <a href="tel:+919106117060" class="direct-link">
+                                <i class="fas fa-phone"></i>
+                                <span>Call Me</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vaibhav-makvana/" target="_blank" class="direct-link">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/makvana-vaibhav" target="_blank" class="direct-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.instagram.com/vaibhav_.ahir/" target="_blank" class="direct-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://facebook.com/vaibhav_.ahir" target="_blank" class="direct-link">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Form -->
+                    <div class="contact-form-container">
+                        <div class="contact-form-card">
+                            <form id="contact-form" action="https://formspree.io/f/maqjlqzp" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="John Doe"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="john@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" class="form-control" rows="6"
+                                        placeholder="Tell me about your project or role..." required></textarea>
+                                </div>
+                                <div id="form-status"
+                                    style="margin-bottom: 20px; padding: 15px; border-radius: 12px; display: none; text-align: center; font-weight: 500;">
+                                </div>
+                                <button type="submit" id="submit-btn" class="btn btn-primary"
+                                    style="width: 100%; padding: 18px; font-weight: 600;">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">VAIBHAV<span class="text-accent">.</span></div>
+                    <p class="text-muted" style="margin-bottom: 25px; max-width: 300px;">Building high-quality web
+                        solutions with a focus on performance and minimalist design.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/makvana-vaibhav" target="_blank"><i class="fab fa-github"
+                                    style="margin-right: 10px; width: 16px;"></i>GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/vaibhav-makvana/" target="_blank"><i
+                                    class="fab fa-linkedin-in" style="margin-right: 10px; width: 16px;"></i>LinkedIn</a>
+                        </li>
+                        <li><a href="https://www.instagram.com/vaibhav_.ahir/" target="_blank"><i
+                                    class="fab fa-instagram" style="margin-right: 10px; width: 16px;"></i>Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:vaibhavmakvana14118@gmail.com"><i class="fas fa-envelope"
+                                    style="margin-right: 10px; width: 16px;"></i>Email</a></li>
+                        <li><a href="tel:+919106117060"><i class="fas fa-phone"
+                                    style="margin-right: 10px; width: 16px;"></i>Call</a></li>
+                        <li><a href="contact.html"><i class="fas fa-paper-plane"
+                                    style="margin-right: 10px; width: 16px;"></i>Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vaibhav Makvana. All rights reserved. | Designed & Built with care</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // UI State change
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                    formStatus.style.color = '#10b981';
+                    formStatus.style.border = '1px solid rgba(16, 185, 129, 0.2)';
+                    formStatus.textContent = 'Your message has been sent successfully! I will connect with you soon.';
+                    contactForm.reset();
+                    submitBtn.textContent = 'Message Sent!';
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Oops! There was a problem submitting your form');
+                }
+            } catch (error) {
+                formStatus.style.display = 'block';
+                formStatus.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                formStatus.style.color = '#ef4444';
+                formStatus.style.border = '1px solid rgba(239, 68, 68, 0.2)';
+                formStatus.textContent = error.message;
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
+</body>
+
+</html>

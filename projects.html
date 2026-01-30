@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Vaibhav Makvana</title>
+    <meta name="description"
+        content="Explore projects built by Vaibhav Makvana, ranging from browser extensions to full-stack applications.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-header {
+            padding: 120px 0 60px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">VAIBHAV<span class="text-accent">.</span></a>
+            <div class="nav-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn btn-outline" style="padding: 10px 25px;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-header section-hero">
+            <div class="container">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <span class="text-accent"
+                            style="font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Showcase of My
+                            Work</span>
+                        <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin-top: 20px;">My works</h1>
+                    </div>
+                    <a href="https://github.com/makvana-vaibhav" target="_blank" class="btn btn-outline"
+                        style="display: flex; align-items: center; gap: 10px; padding: 12px 25px;">
+                        <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+                        <span>Follow on GitHub</span>
+                    </a>
+                </div>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 60px 0;">
+
+                <div id="all-projects-container" class="projects-grid">
+                    <!-- Projects rendered via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">VAIBHAV<span class="text-accent">.</span></div>
+                    <p class="text-muted" style="margin-bottom: 25px;">Building digital experiences that make an impact.
+                        Let's work together to bring your ideas to life.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/makvana-vaibhav" target="_blank"><i class="fab fa-github"
+                                    style="margin-right: 10px; width: 16px;"></i>GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/vaibhav-makvana/" target="_blank"><i
+                                    class="fab fa-linkedin-in" style="margin-right: 10px; width: 16px;"></i>LinkedIn</a>
+                        </li>
+                        <li><a href="https://www.instagram.com/vaibhav_.ahir/" target="_blank"><i
+                                    class="fab fa-instagram" style="margin-right: 10px; width: 16px;"></i>Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:vaibhavmakvana14118@gmail.com"><i class="fas fa-envelope"
+                                    style="margin-right: 10px; width: 16px;"></i>Email</a></li>
+                        <li><a href="tel:+919106117060"><i class="fas fa-phone"
+                                    style="margin-right: 10px; width: 16px;"></i>Call</a></li>
+                        <li><a href="contact.html"><i class="fas fa-paper-plane"
+                                    style="margin-right: 10px; width: 16px;"></i>Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vaibhav Makvana. All rights reserved. | Designed & Built with care</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjectCards('#all-projects-container', false);
+        });
+    </script>
+</body>
+
+</html>
