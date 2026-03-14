@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <style>
         /* Home page specific styles */
         .hero {
@@ -148,9 +150,10 @@
         }
 
         .skill-pod:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            background: rgba(40, 40, 40, 0.5);
-            transform: translateY(-2px);
+            border-color: rgba(255, 159, 28, 0.4);
+            background: rgba(40, 40, 40, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 159, 28, 0.1);
         }
 
         .skill-pod h3 {
@@ -249,6 +252,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-color: var(--accent-color);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .service-number {
@@ -408,12 +412,11 @@
         <section class="hero section-hero">
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-subtitle text-accent">Web & Software Developer</span>
+                    <span class="hero-subtitle text-accent">Creative Web Engineer</span>
                     <h1>Hi, I'm Vaibhav Makvana</h1>
-                    <h2>Building Modern Web Experiences</h2>
-                    <p>I create <span class="accent-word">clean, responsive</span>, and <span
-                            class="accent-word">performance-driven</span> web applications for businesses and
-                        individuals.</p>
+                    <h2>Crafting Interactive Web Experiences</h2>
+                    <p>I build <span class="accent-word">dynamic, engaging</span>, and <span
+                            class="accent-word">performance-driven</span> front-end applications, solving complex logic puzzles along the way.</p>
                     <div class="hero-btns">
                         <a href="projects.html" class="btn btn-primary">View Projects</a>
                         <a href="contact.html" class="btn btn-outline">Contact Me</a>
@@ -452,31 +455,31 @@
 
                 <div class="bento-grid">
                     <!-- Frontend - Small Pod -->
-                    <div class="skill-pod">
+                    <div class="skill-pod" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <h3 style="color: #60a5fa;">Frontend</h3>
                         <div class="skill-list" id="frontend-skills"></div>
                     </div>
 
                     <!-- Backend - Large Pod -->
-                    <div class="skill-pod large">
+                    <div class="skill-pod large" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <h3 style="color: #fb923c;">Backend & DB</h3>
                         <div class="skill-list" id="backend-skills"></div>
                     </div>
 
                     <!-- Tools - Small Pod -->
-                    <div class="skill-pod">
+                    <div class="skill-pod" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <h3 style="color: #a78bfa;">Tools</h3>
                         <div class="skill-list" id="tools-skills"></div>
                     </div>
 
                     <!-- Web & SEO - Small Pod -->
-                    <div class="skill-pod">
+                    <div class="skill-pod" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <h3 style="color: #4ade80;">Web & SEO</h3>
                         <div class="skill-list" id="web-skills"></div>
                     </div>
 
                     <!-- Other - Small Pod -->
-                    <div class="skill-pod">
+                    <div class="skill-pod" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <h3 style="color: #f472b6;">Other</h3>
                         <div class="skill-list" id="other-skills"></div>
                     </div>
@@ -484,18 +487,18 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="section" style="background: #0d0d0d;">
+        <!-- Expertise Section -->
+        <section class="section" style="background: #0d0d0d; position: relative; overflow: hidden;">
             <div class="container">
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 40px; position: relative; z-index: 1;">
                     <span class="text-accent"
-                        style="font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.9rem;">Expert
-                        Services</span>
-                    <h2 style="font-size: 2.5rem; margin-top: 12px; font-weight: 700;">Services I Offer</h2>
+                        style="font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.9rem;">My Core
+                        Expertise</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 12px; font-weight: 700;">What I Do Best</h2>
                 </div>
 
-                <div id="services-list" class="services-list">
-                    <!-- Services will be rendered here via JS -->
+                <div id="expertise-list" class="services-list" style="position: relative; z-index: 1;">
+                    <!-- Expertise will be rendered here via JS -->
                 </div>
             </div>
         </section>
@@ -594,16 +597,23 @@
             renderSkillTags('web-skills', portfolioData.skills.web);
             renderSkillTags('other-skills', portfolioData.skills.other);
 
-            // Render Services
-            const servicesList = document.getElementById('services-list');
-            if (servicesList && portfolioData.services) {
-                servicesList.innerHTML = portfolioData.services.map((service, index) => `
-                    <div class="service-row">
+            // Render Expertise
+            const expertiseList = document.getElementById('expertise-list');
+            if (expertiseList && portfolioData.expertise) {
+                expertiseList.innerHTML = portfolioData.expertise.map((item, index) => `
+                    <div class="service-row" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
                         <div class="service-number">${(index + 1).toString().padStart(2, '0')}</div>
-                        <div class="service-title">${service.title}</div>
-                        <div class="service-desc">${service.description}</div>
+                        <div class="service-title">${item.title}</div>
+                        <div class="service-desc">${item.description}</div>
                     </div>
                 `).join('');
+            }
+            
+            // Re-initialize vanilla-tilt for dynamically added elements if VanillaTilt is available
+            if (typeof VanillaTilt !== 'undefined') {
+                setTimeout(() => {
+                    VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+                }, 100);
             }
         });
     </script>

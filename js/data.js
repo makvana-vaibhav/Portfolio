@@ -14,8 +14,31 @@ const portfolioData = {
     instagram: "https://www.instagram.com/vaibhav_.ahir/",
     about: "I am a web developer focused on building clean, responsive, and performance-driven web applications. I enjoy turning ideas into functional products using HTML, CSS, and JavaScript, and I am currently expanding my skills in backend development."
   },
-  
+
   projects: [
+    {
+      id: "cinemystry",
+      title: "Cinemystry",
+      category: "Browser Game",
+      tech: ["HTML5", "CSS3", "JavaScript", "Game Logic", "CSS Animations"],
+      description: "A fun and interactive browser game where you guess hidden movie titles before time runs out.",
+      fullDescription: "Cinemystry is an engaging word-guessing game built specifically for the browser. Players must uncover hidden Hindi and English movie titles by guessing the correct letters within a time limit. It includes varying difficulty levels, an intuitive hint system, a local scoreboard, and supports both solo play and co-op with a friend.",
+      features: [
+        "Hindi and English movie databases",
+        "Multiple difficulty levels and timing mechanics",
+        "Interactive hint system",
+        "Local scoreboard for tracking high scores",
+        "Solo play or play with a friend mode",
+        "Fully responsive design and animations"
+      ],
+      learned: "Gained significant experience in complex game loops, state management, timer interactions, and DOM manipulation for real-time game updates. Developed a deep understanding of optimizing small-scale browser games.",
+      links: {
+        live: "https://lnkd.in/gsGzwdSc",
+        github: "https://lnkd.in/gQZXbGDw"
+      },
+      featured: true,
+      image: "img/cinemystry.webp"
+    },
     {
       id: "spotlink",
       title: "SpotLink",
@@ -157,7 +180,7 @@ const portfolioData = {
       image: "img/js-projects.webp"
     }
   ],
-  
+
   skills: {
     frontend: [
       "HTML5",
@@ -189,22 +212,22 @@ const portfolioData = {
     ]
   },
 
-  services: [
+  expertise: [
     {
-      title: "Website Development",
-      description: "Custom websites for businesses, personal portfolios, high-conversion landing pages, and fully responsive designs."
+      title: "Interactive Web Interfaces",
+      description: "Crafting highly engaging, animated, and responsive front-end experiences using modern HTML, CSS, and JS techniques."
     },
     {
-      title: "Software for Businesses",
-      description: "Tailored software solutions including efficient billing, inventory management, and booking systems."
+      title: "Creative Problem Solving",
+      description: "Developing complex logic and algorithms for specialized applications, from browser games to comprehensive data dashboards."
     },
     {
-      title: "eCommerce Solutions",
-      description: "Secure, user-friendly online stores with smooth product management and integrated payment solutions."
+      title: "Full-Stack Architecture",
+      description: "Building resilient back-end systems connected seamlessly to front-end clients using Node.js, Express, and databases."
     },
     {
-      title: "Digital Marketing & Social Media",
-      description: "Strategic online presence and social media management to grow your brand and reach more customers."
+      title: "Performance & Optimization",
+      description: "Ensuring web applications run lightning fast, with optimized assets, efficient DOM updates, and robust semantic structures."
     }
   ]
 };

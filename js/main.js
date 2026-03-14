@@ -15,7 +15,7 @@ function initNavigation() {
     const header = document.querySelector('header');
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     // Header scroll background
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -45,7 +45,7 @@ function initNavigation() {
     // Set active link based on current page
     const currentPath = window.location.pathname;
     const pageName = currentPath.split("/").pop() || "index.html";
-    
+
     links.forEach(link => {
         if (link.getAttribute('href') === pageName) {
             link.classList.add('active');
@@ -95,8 +95,8 @@ function renderProjectCards(containerSelector, filterFeatured = false, limit = n
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
-    let projectsToRender = filterFeatured 
-        ? portfolioData.projects.filter(p => p.featured) 
+    let projectsToRender = filterFeatured
+        ? portfolioData.projects.filter(p => p.featured)
         : portfolioData.projects;
 
     if (limit) {
@@ -104,12 +104,12 @@ function renderProjectCards(containerSelector, filterFeatured = false, limit = n
     }
 
     container.innerHTML = projectsToRender.map(project => `
-        <div class="card project-card">
+        <div class="card project-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
         <div class="project-card-img" style="height: 220px; border-radius: 12px; margin-bottom: 25px; overflow: hidden; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.05);">
-            ${project.image && !project.image.includes('placeholder') && !project.image.includes('cover.webp') ? 
-                `<img src="${project.image}" alt="${project.title} – ${project.subtitle || project.category}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">` :
-                `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); color: rgba(255,255,255,0.2); font-weight: 600; font-size: 0.9rem;">${project.title} Preview</div>`
-            }
+            ${project.image && !project.image.includes('placeholder') && !project.image.includes('cover.webp') ?
+            `<img src="${project.image}" alt="${project.title} – ${project.subtitle || project.category}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">` :
+            `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); color: rgba(255,255,255,0.2); font-weight: 600; font-size: 0.9rem;">${project.title} Preview</div>`
+        }
         </div>
             <span class="text-accent" style="font-size: 0.8rem; font-weight: 600;">${project.category}</span>
             <h3 style="margin: 10px 0;">${project.title}</h3>
@@ -117,7 +117,13 @@ function renderProjectCards(containerSelector, filterFeatured = false, limit = n
             <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
                 ${project.tech.map(t => `<span style="font-size: 0.7rem; background: #333; padding: 4px 10px; border-radius: 4px;">${t}</span>`).join('')}
             </div>
-            <a href="projects/${project.id}.html" class="btn btn-outline" style="width: 100%; text-align: center; padding: 10px;">View Details</a>
+            <a href="projects/${project.id}.html" class="btn btn-outline" style="width: 100%; text-align: center; padding: 10px; position: relative; z-index: 2;">View Details</a>
         </div>
     `).join('');
+
+    if (typeof VanillaTilt !== 'undefined') {
+        setTimeout(() => {
+            VanillaTilt.init(document.querySelectorAll(".project-card"));
+        }, 100);
+    }
 }
