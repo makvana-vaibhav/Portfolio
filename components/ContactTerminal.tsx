@@ -136,7 +136,7 @@ export default function ContactTerminal() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-5">
-            <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">06 / Contact</div>
+            <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">05 / Contact</div>
             <div className="flex-1 h-px bg-[#1c1c1c]" />
           </div>
 

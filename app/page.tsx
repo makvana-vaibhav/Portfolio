@@ -6,9 +6,8 @@ import Navigation from '@/components/Navigation';
 import CommandCenter from '@/components/CommandCenter';
 import AISystemsLab from '@/components/AISystemsLab';
 import InfrastructureControl from '@/components/InfrastructureControl';
-import EngineeringStories from '@/components/EngineeringStories';
-import ArchitectureExplorer from '@/components/ArchitectureExplorer';
-import EvolutionTimeline from '@/components/EvolutionTimeline';
+import Experience from '@/components/Experience';
+import AboutIdentity from '@/components/AboutIdentity';
 import ContactTerminal from '@/components/ContactTerminal';
 import Footer from '@/components/Footer';
 
@@ -30,9 +29,8 @@ export default function Home() {
             <CommandCenter />
             <AISystemsLab />
             <InfrastructureControl />
-            <EngineeringStories />
-            <ArchitectureExplorer />
-            <EvolutionTimeline />
+            <Experience />
+            <AboutIdentity />
             <ContactTerminal />
           </main>
           <Footer />

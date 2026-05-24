@@ -37,7 +37,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               {status.label}
             </span>
             <span className="text-[9px] font-mono text-[#444] tracking-widest uppercase border border-[#1c1c1c] px-2 py-0.5 rounded-sm">
-              {project.complexity}
+              {project.category.split(' ')[0]}
             </span>
           </div>
           <div className="font-mono text-[10px] text-[#555] tracking-widest mb-1 uppercase">
@@ -67,16 +67,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <div className="font-mono text-[11px] text-[#f97316]/80 bg-[#0d0d0d] border border-[#1a1a1a] rounded-sm px-3 py-2 leading-relaxed">
             {project.architecture}
           </div>
-        </div>
-
-        {/* Metrics row */}
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          {project.metrics.map(m => (
-            <div key={m.label} className="border border-[#1a1a1a] rounded-sm p-2.5 text-center bg-[#0d0d0d]">
-              <div className="font-mono text-sm font-semibold text-white tabular-nums">{m.value}</div>
-              <div className="font-mono text-[9px] text-[#444] mt-0.5 tracking-wider uppercase">{m.label}</div>
-            </div>
-          ))}
         </div>
 
         {/* Stack tags */}
@@ -155,7 +145,7 @@ export default function AISystemsLab() {
 
   return (
     <section
-      id="ai-systems"
+      id="projects"
       className="relative py-28"
       style={{ background: '#060606' }}
     >
@@ -179,7 +169,7 @@ export default function AISystemsLab() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">
-              01 / Systems Lab
+              01 / Projects
             </div>
             <div className="flex-1 h-px bg-[#1c1c1c]" />
           </div>
@@ -187,11 +177,11 @@ export default function AISystemsLab() {
           <div className="grid md:grid-cols-[1fr_auto] gap-6 items-end">
             <div>
               <h2 className="font-display font-bold text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
-                AI Systems <span className="text-[#f97316]">Lab</span>
+                Engineering <span className="text-[#f97316]">Projects</span>
               </h2>
               <p className="text-[#666] text-base leading-relaxed max-w-xl font-body">
-                Production-deployed systems. Each built with real business constraints, real hardware, real traffic.
-                Not demos — deployed software.
+                Projects built with real constraints — offline hardware, live databases, production deployments.
+                Backend logic, not just interfaces.
               </p>
             </div>
             <div className="flex items-center gap-2 font-mono text-[10px] text-[#444] border border-[#1c1c1c] px-4 py-2 rounded-sm flex-shrink-0">

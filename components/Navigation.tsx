@@ -5,11 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { personal } from '@/data/portfolio';
 
 const navLinks = [
-  { label: 'Systems', href: '#ai-systems' },
-  { label: 'Infrastructure', href: '#infrastructure' },
-  { label: 'Stories', href: '#stories' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Timeline', href: '#timeline' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Stack', href: '#stack' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 

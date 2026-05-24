@@ -34,56 +34,11 @@ function AnimatedCounter({ target, duration = 1800 }: { target: number; duration
   return <span ref={ref}>{count}</span>;
 }
 
-function LiveMetricPanel() {
-  const [ticks, setTicks] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTicks(prev => prev.map((v, i) => {
-        const base = [72, 45, 88, 61, 55, 79, 34, 91][i];
-        return Math.max(20, Math.min(99, base + Math.floor((Math.random() - 0.5) * 12)));
-      }));
-    }, 2200);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="border border-[#1c1c1c] bg-[#0a0a0a] rounded-sm p-4 font-mono">
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-[10px] text-[#444] tracking-widest uppercase">System Telemetry</span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
-          <span className="text-[10px] text-[#22c55e]">LIVE</span>
-        </span>
-      </div>
-      <div className="grid grid-cols-4 gap-1.5">
-        {['CPU', 'MEM', 'NET', 'I/O', 'API', 'DB', 'Q', 'GPU'].map((label, i) => (
-          <div key={label} className="flex flex-col gap-1">
-            <div className="text-[9px] text-[#444] tracking-wider">{label}</div>
-            <div className="h-1 bg-[#111] rounded-full overflow-hidden">
-              <motion.div
-                className="h-full rounded-full"
-                style={{
-                  background: ticks[i] > 80 ? '#ef4444' : ticks[i] > 60 ? '#f59e0b' : '#22c55e',
-                  width: `${ticks[i]}%`,
-                }}
-                animate={{ width: `${ticks[i]}%` }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
-              />
-            </div>
-            <div className="text-[9px] text-[#666] tabular-nums">{ticks[i]}%</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ServiceStatusPanel() {
   return (
     <div className="border border-[#1c1c1c] bg-[#0a0a0a] rounded-sm p-4 font-mono">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[10px] text-[#444] tracking-widest uppercase">Service Status</span>
+        <span className="text-[10px] text-[#444] tracking-widest uppercase">Services</span>
         <span className="text-[10px] text-[#f97316]">6/6</span>
       </div>
       <div className="space-y-1.5">
@@ -94,6 +49,37 @@ function ServiceStatusPanel() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
               <span className="text-[10px] text-[#22c55e] tracking-wider">UP</span>
             </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ActiveStackPanel() {
+  const activeStack = [
+    { label: 'Runtime', value: 'Python 3.11' },
+    { label: 'Queue', value: 'AWS SQS' },
+    { label: 'API', value: 'Node.js / Express' },
+    { label: 'Database', value: 'PostgreSQL + Redis' },
+    { label: 'Infra', value: 'Docker + AWS' },
+    { label: 'Auth', value: 'JWT / OAuth 2.0' },
+  ];
+
+  return (
+    <div className="border border-[#1c1c1c] bg-[#0a0a0a] rounded-sm p-4 font-mono">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-[10px] text-[#444] tracking-widest uppercase">Active Stack</span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#f97316]" style={{ opacity: 0.7 }} />
+          <span className="text-[10px] text-[#f97316]" style={{ opacity: 0.8 }}>IN USE</span>
+        </span>
+      </div>
+      <div className="space-y-1.5">
+        {activeStack.map(item => (
+          <div key={item.label} className="flex items-center justify-between">
+            <span className="text-[10px] text-[#555]">{item.label}</span>
+            <span className="text-[11px] text-[#888]">{item.value}</span>
           </div>
         ))}
       </div>
@@ -123,32 +109,24 @@ export default function CommandCenter() {
     >
       {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.04] bg-[#f97316] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.03] bg-[#3b82f6] blur-[120px] pointer-events-none" />
-
-      {/* Top status bar */}
-      <div className="absolute top-0 left-0 right-0 h-16 flex items-end px-6 pb-0">
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-          <div />
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto px-6 py-32 w-full">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-12 items-center">
+        <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-center">
 
-          {/* Left: Main identity */}
+          {/* Left: Identity */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {/* System label */}
+            {/* Status labels */}
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
               <div className="flex items-center gap-2 px-3 py-1 border border-[#1c1c1c] bg-[#0d0d0d] rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
-                <span className="font-mono text-[10px] text-[#22c55e] tracking-widest uppercase">Systems Online</span>
+                <span className="font-mono text-[10px] text-[#22c55e] tracking-widest uppercase">Available</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1 border border-[#1c1c1c] bg-[#0d0d0d] rounded-sm">
-                <span className="font-mono text-[10px] text-[#444] tracking-widest uppercase">v2.0.0</span>
+                <span className="font-mono text-[10px] text-[#f97316] tracking-widest uppercase opacity-70">Rishvi Ltd · Active</span>
               </div>
             </motion.div>
 
@@ -167,7 +145,7 @@ export default function CommandCenter() {
 
             {/* Title */}
             <motion.div variants={itemVariants} className="mb-6">
-              <div className="font-mono text-[#f97316] text-sm tracking-[0.2em] uppercase mb-2">
+              <div className="font-mono text-[#f97316] text-sm tracking-[0.2em] uppercase">
                 {personal.title}
               </div>
             </motion.div>
@@ -177,36 +155,36 @@ export default function CommandCenter() {
               variants={itemVariants}
               className="text-[#888] text-lg leading-relaxed max-w-xl mb-10 font-body"
             >
-              Engineering production-grade backend systems, AI inference pipelines, and scalable infrastructure.
-              Every system ships with observability, error recovery, and real deployment history.
+              Building backend systems, AI pipelines, and cloud infrastructure.
+              Currently at Rishvi Ltd working on production AI systems — image processing, worker orchestration, and DevOps.
             </motion.p>
 
             {/* CTA buttons */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
               <a
-                href="#ai-systems"
+                href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#f97316] text-black font-mono text-sm font-semibold tracking-widest uppercase hover:bg-[#fb923c] transition-colors duration-200 rounded-sm"
               >
-                <span>Explore Systems</span>
+                <span>View Projects</span>
                 <span>→</span>
               </a>
               <a
-                href="#architecture"
+                href="#experience"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[#2a2a2a] text-[#999] font-mono text-sm tracking-widest uppercase hover:border-[#f97316] hover:text-[#f97316] transition-all duration-200 rounded-sm"
               >
-                View Architecture
+                Experience
               </a>
               <a
-                href={personal.linkedin}
+                href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[#1c1c1c] text-[#666] font-mono text-sm tracking-widest uppercase hover:border-[#2a2a2a] hover:text-[#999] transition-all duration-200 rounded-sm"
               >
-                LinkedIn
+                GitHub ↗
               </a>
             </motion.div>
 
-            {/* Metrics strip */}
+            {/* Metrics */}
             <motion.div variants={itemVariants} className="mt-12 pt-8 border-t border-[#1a1a1a]">
               <div className="flex flex-wrap gap-8">
                 {systemMetrics.map(m => (
@@ -222,7 +200,7 @@ export default function CommandCenter() {
             </motion.div>
           </motion.div>
 
-          {/* Right: System panels */}
+          {/* Right: real panels */}
           <motion.div
             className="flex flex-col gap-3"
             initial={{ opacity: 0, x: 30 }}
@@ -230,26 +208,19 @@ export default function CommandCenter() {
             transition={{ delay: 0.4, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <ServiceStatusPanel />
-            <LiveMetricPanel />
+            <ActiveStackPanel />
 
-            {/* Location panel */}
+            {/* Profile panel */}
             <div className="border border-[#1c1c1c] bg-[#0a0a0a] rounded-sm p-4 font-mono">
-              <div className="text-[10px] text-[#444] tracking-widest uppercase mb-2">Engineer Profile</div>
+              <div className="text-[10px] text-[#444] tracking-widest uppercase mb-2">Profile</div>
               <div className="space-y-1.5">
                 <div className="flex justify-between items-center">
                   <span className="text-[11px] text-[#555]">Location</span>
-                  <span className="text-[11px] text-[#888]">{personal.location}</span>
+                  <span className="text-[11px] text-[#888]">Rajkot, India</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-[11px] text-[#555]">Focus</span>
-                  <span className="text-[11px] text-[#f97316]">Backend + Infra</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[11px] text-[#555]">Status</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
-                    <span className="text-[11px] text-[#22c55e]">Available</span>
-                  </span>
+                  <span className="text-[11px] text-[#f97316]">Backend + AI + DevOps</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-[11px] text-[#555]">Domain</span>
