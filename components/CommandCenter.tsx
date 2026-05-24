@@ -2,52 +2,41 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { personal, systemMetrics, systemStatus } from '@/data/portfolio';
+import { personal, systemStatus, techStrip } from '@/data/portfolio';
 
-function AnimatedCounter({ target, duration = 1800 }: { target: number; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
+function LiveSystemPanel() {
+  const [latencies, setLatencies] = useState([3, 1, 2, 1, 11, 1]);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const startTime = performance.now();
-          const tick = (now: number) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target, duration]);
+    const interval = setInterval(() => {
+      setLatencies(prev =>
+        prev.map(l => Math.max(1, Math.min(29, l + Math.round((Math.random() - 0.45) * 3)))
+        )
+      );
+      setTick(t => t + 1);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
 
-  return <span ref={ref}>{count}</span>;
-}
-
-function ServiceStatusPanel() {
   return (
     <div className="border border-[#1c1c1c] bg-[#0a0a0a] rounded-sm p-4 font-mono">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[10px] text-[#444] tracking-widest uppercase">Services</span>
-        <span className="text-[10px] text-[#f97316]">6/6</span>
+        <span className="text-[10px] text-[#444] tracking-widest uppercase">Service Health</span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-1 h-1 rounded-full bg-[#22c55e] status-dot" />
+          <span className="text-[10px] text-[#22c55e]">6 / 6</span>
+        </span>
       </div>
       <div className="space-y-1.5">
-        {systemStatus.map(s => (
+        {systemStatus.map((s, i) => (
           <div key={s.service} className="flex items-center justify-between">
-            <span className="text-[11px] text-[#777]">{s.service}</span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
-              <span className="text-[10px] text-[#22c55e] tracking-wider">UP</span>
+              <span className="w-1 h-1 rounded-full bg-[#22c55e] flex-shrink-0" style={{ opacity: 0.6 }} />
+              <span className="text-[11px] text-[#666]">{s.service}</span>
+            </span>
+            <span className="text-[10px] text-[#3a3a3a] tabular-nums">
+              {latencies[i]}ms
             </span>
           </div>
         ))}
@@ -57,9 +46,20 @@ function ServiceStatusPanel() {
 }
 
 function ActiveStackPanel() {
+  const [queueDepth, setQueueDepth] = useState(7);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQueueDepth(prev =>
+        Math.max(0, Math.min(42, prev + Math.round((Math.random() - 0.45) * 4)))
+      );
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   const activeStack = [
     { label: 'Runtime', value: 'Python 3.11' },
-    { label: 'Queue', value: 'AWS SQS' },
+    { label: 'Queue', value: 'AWS SQS', live: true, liveValue: `${queueDepth} jobs` },
     { label: 'API', value: 'Node.js / Express' },
     { label: 'Database', value: 'PostgreSQL + Redis' },
     { label: 'Infra', value: 'Docker + AWS' },
@@ -71,15 +71,22 @@ function ActiveStackPanel() {
       <div className="flex items-center justify-between mb-3">
         <span className="text-[10px] text-[#444] tracking-widest uppercase">Active Stack</span>
         <span className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#f97316]" style={{ opacity: 0.7 }} />
-          <span className="text-[10px] text-[#f97316]" style={{ opacity: 0.8 }}>IN USE</span>
+          <span className="w-1 h-1 rounded-full bg-[#f97316] flex-shrink-0" style={{ opacity: 0.6 }} />
+          <span className="text-[10px] text-[#f97316]" style={{ opacity: 0.7 }}>IN USE</span>
         </span>
       </div>
       <div className="space-y-1.5">
         {activeStack.map(item => (
           <div key={item.label} className="flex items-center justify-between">
-            <span className="text-[10px] text-[#555]">{item.label}</span>
-            <span className="text-[11px] text-[#888]">{item.value}</span>
+            <span className="text-[10px] text-[#444]">{item.label}</span>
+            <span className="text-[11px] text-[#777]">
+              {item.value}
+              {item.live && (
+                <span className="ml-1.5 text-[9px] text-[#2a2a2a] tabular-nums">
+                  · {item.liveValue}
+                </span>
+              )}
+            </span>
           </div>
         ))}
       </div>
@@ -103,7 +110,8 @@ export default function CommandCenter() {
       id="command-center"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
       style={{
-        backgroundImage: 'linear-gradient(to right, #111111 1px, transparent 1px), linear-gradient(to bottom, #111111 1px, transparent 1px)',
+        backgroundImage:
+          'linear-gradient(to right, #111111 1px, transparent 1px), linear-gradient(to bottom, #111111 1px, transparent 1px)',
         backgroundSize: '40px 40px',
       }}
     >
@@ -119,14 +127,16 @@ export default function CommandCenter() {
             initial="hidden"
             animate="visible"
           >
-            {/* Status labels */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
+            {/* Status badges */}
+            <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8 flex-wrap">
               <div className="flex items-center gap-2 px-3 py-1 border border-[#1c1c1c] bg-[#0d0d0d] rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
                 <span className="font-mono text-[10px] text-[#22c55e] tracking-widest uppercase">Available</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1 border border-[#1c1c1c] bg-[#0d0d0d] rounded-sm">
-                <span className="font-mono text-[10px] text-[#f97316] tracking-widest uppercase opacity-70">Rishvi Ltd · Active</span>
+                <span className="font-mono text-[10px] text-[#f97316] tracking-widest uppercase opacity-70">
+                  Rishvi Ltd · Active
+                </span>
               </div>
             </motion.div>
 
@@ -156,7 +166,8 @@ export default function CommandCenter() {
               className="text-[#888] text-lg leading-relaxed max-w-xl mb-10 font-body"
             >
               Building backend systems, AI pipelines, and cloud infrastructure.
-              Currently at Rishvi Ltd working on production AI systems — image processing, worker orchestration, and DevOps.
+              Currently at Rishvi Ltd working on production AI systems — image processing,
+              worker orchestration, and DevOps.
             </motion.p>
 
             {/* CTA buttons */}
@@ -184,30 +195,30 @@ export default function CommandCenter() {
               </a>
             </motion.div>
 
-            {/* Metrics */}
-            <motion.div variants={itemVariants} className="mt-12 pt-8 border-t border-[#1a1a1a]">
-              <div className="flex flex-wrap gap-8">
-                {systemMetrics.map(m => (
-                  <div key={m.label} className="font-mono">
-                    <div className="text-3xl font-bold text-white tabular-nums flex items-baseline gap-0.5">
-                      <AnimatedCounter target={parseInt(m.value)} />
-                      <span className="text-[#f97316]">+</span>
-                    </div>
-                    <div className="text-[10px] text-[#444] tracking-widest uppercase mt-0.5">{m.label}</div>
-                  </div>
-                ))}
-              </div>
+            {/* Tech strip — replaces inflated number metrics */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-12 pt-8 border-t border-[#1a1a1a] flex flex-wrap items-center gap-x-4 gap-y-2"
+            >
+              {techStrip.map((tech, i) => (
+                <span key={tech} className="flex items-center gap-2">
+                  <span className="font-mono text-[11px] text-[#444] tracking-widest">{tech}</span>
+                  {i < techStrip.length - 1 && (
+                    <span className="text-[#222] font-mono text-[8px]">·</span>
+                  )}
+                </span>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Right: real panels */}
+          {/* Right: live panels */}
           <motion.div
             className="flex flex-col gap-3"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
-            <ServiceStatusPanel />
+            <LiveSystemPanel />
             <ActiveStackPanel />
 
             {/* Profile panel */}
@@ -215,18 +226,20 @@ export default function CommandCenter() {
               <div className="text-[10px] text-[#444] tracking-widest uppercase mb-2">Profile</div>
               <div className="space-y-1.5">
                 <div className="flex justify-between items-center">
-                  <span className="text-[11px] text-[#555]">Location</span>
-                  <span className="text-[11px] text-[#888]">Rajkot, India</span>
+                  <span className="text-[10px] text-[#444]">Location</span>
+                  <span className="text-[11px] text-[#777]">Rajkot, India</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[11px] text-[#555]">Focus</span>
-                  <span className="text-[11px] text-[#f97316]">Backend + AI + DevOps</span>
+                  <span className="text-[10px] text-[#444]">Focus</span>
+                  <span className="text-[11px] text-[#f97316]" style={{ opacity: 0.8 }}>
+                    Backend + AI + DevOps
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[11px] text-[#555]">Domain</span>
+                  <span className="text-[10px] text-[#444]">Domain</span>
                   <a
                     href={`https://${personal.domain}`}
-                    className="text-[11px] text-[#666] hover:text-[#f97316] transition-colors"
+                    className="text-[11px] text-[#555] hover:text-[#f97316] transition-colors"
                   >
                     {personal.domain}
                   </a>
@@ -243,8 +256,8 @@ export default function CommandCenter() {
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="font-mono text-[9px] text-[#333] tracking-[0.3em] uppercase">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-[#333] to-transparent" />
+        <span className="font-mono text-[9px] text-[#2a2a2a] tracking-[0.3em] uppercase">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-[#2a2a2a] to-transparent" />
       </motion.div>
     </section>
   );

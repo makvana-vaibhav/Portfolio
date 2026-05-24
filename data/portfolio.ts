@@ -12,11 +12,8 @@ export const personal = {
   domain: "vaibhavmakvana.in",
 };
 
-export const systemMetrics = [
-  { label: "Projects Shipped", value: "7+", unit: "systems" },
-  { label: "Technologies", value: "18+", unit: "technologies" },
-  { label: "Production Deploys", value: "5+", unit: "deployments" },
-  { label: "Yrs Engineering", value: "3+", unit: "years" },
+export const techStrip = [
+  "Python 3.11", "AWS", "SQS", "Docker", "PostgreSQL", "Redis", "Node.js", "Express.js",
 ];
 
 export const systemStatus = [
@@ -70,6 +67,54 @@ export const skillCategories = [
     label: "Toolchain",
     color: "#6b7280",
     skills: ["Git / GitHub", "Postman", "VS Code", "ESC/POS Protocol", "Vite"],
+  },
+];
+
+export const systemCapabilities = [
+  {
+    id: "ai-eng",
+    name: "AI Systems Engineering",
+    description:
+      "Python-based pipelines for real AI workloads — image enhancement, inference engines, hallucination detection, content classification, and distributed worker orchestration at scale.",
+    tools: ["Python 3.11", "AWS SQS", "OpenAI API", "Task Queues", "Image Processing"],
+    color: "#f97316",
+    marker: "PYTHON · AI",
+  },
+  {
+    id: "backend-api",
+    name: "Backend API Design",
+    description:
+      "REST API architecture with clean request lifecycles — auth middleware, rate limiting, error handling, schema validation, and production-level reliability.",
+    tools: ["Node.js", "Express.js", "Python", "REST", "JWT", "OAuth 2.0"],
+    color: "#22c55e",
+    marker: "NODE.JS · PYTHON",
+  },
+  {
+    id: "infra",
+    name: "Infrastructure & DevOps",
+    description:
+      "End-to-end production deployments on cloud — containerization, automated CI/CD pipelines, reverse proxy configuration, and live system monitoring.",
+    tools: ["AWS", "Docker", "Nginx", "Jenkins", "Linux", "CI/CD"],
+    color: "#3b82f6",
+    marker: "AWS · DOCKER",
+  },
+  {
+    id: "databases",
+    name: "Database Architecture",
+    description:
+      "Schema design for real-world write volumes — indexing strategies, query optimization, connection pooling, and caching layers that don't become bottlenecks.",
+    tools: ["PostgreSQL", "Redis", "MongoDB", "MySQL"],
+    color: "#a855f7",
+    marker: "POSTGRES · REDIS",
+  },
+  {
+    id: "frontend",
+    name: "Frontend Systems",
+    description:
+      "React/TypeScript SPAs when the UI is part of the product — performance-optimized, statically exported, CDN-delivered.",
+    tools: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    color: "#6b7280",
+    marker: "REACT · TS",
   },
 ];
 

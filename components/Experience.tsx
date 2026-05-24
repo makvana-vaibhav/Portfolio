@@ -30,7 +30,7 @@ export default function Experience() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">
-              03 / Experience
+              04 / Experience
             </div>
             <div className="flex-1 h-px bg-[#1c1c1c]" />
           </div>

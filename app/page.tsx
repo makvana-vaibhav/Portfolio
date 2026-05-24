@@ -5,6 +5,7 @@ import BootSequence from '@/components/BootSequence';
 import Navigation from '@/components/Navigation';
 import CommandCenter from '@/components/CommandCenter';
 import AISystemsLab from '@/components/AISystemsLab';
+import SystemTopology from '@/components/SystemTopology';
 import InfrastructureControl from '@/components/InfrastructureControl';
 import Experience from '@/components/Experience';
 import AboutIdentity from '@/components/AboutIdentity';
@@ -28,6 +29,7 @@ export default function Home() {
           <main>
             <CommandCenter />
             <AISystemsLab />
+            <SystemTopology />
             <InfrastructureControl />
             <Experience />
             <AboutIdentity />

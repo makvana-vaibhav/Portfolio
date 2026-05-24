@@ -6,6 +6,7 @@ import { personal } from '@/data/portfolio';
 
 const navLinks = [
   { label: 'Projects', href: '#projects' },
+  { label: 'System', href: '#architecture' },
   { label: 'Stack', href: '#stack' },
   { label: 'Experience', href: '#experience' },
   { label: 'About', href: '#about' },

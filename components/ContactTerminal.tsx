@@ -5,16 +5,19 @@ import { motion, useInView } from 'framer-motion';
 import { personal } from '@/data/portfolio';
 
 const terminalLines = [
-  { text: '$ whoami', type: 'cmd' as const, delay: 200 },
-  { text: '  vaibhav-makvana — AI Backend & Infrastructure Engineer', type: 'output' as const, delay: 500 },
-  { text: '$ status', type: 'cmd' as const, delay: 900 },
-  { text: '  ● Available for backend engineering, AI systems, infrastructure', type: 'output' as const, delay: 1200 },
-  { text: '  ● Open to production engineering roles and freelance projects', type: 'output' as const, delay: 1450 },
-  { text: '$ contact --method preferred', type: 'cmd' as const, delay: 1800 },
-  { text: '  → Email: vaibhav.r.makvana@gmail.com', type: 'output' as const, delay: 2100 },
-  { text: '  → LinkedIn: linkedin.com/in/vaibhav-makvana', type: 'output' as const, delay: 2300 },
-  { text: '  → GitHub: github.com/makvana-vaibhav', type: 'output' as const, delay: 2500 },
-  { text: '$ _', type: 'prompt' as const, delay: 2800 },
+  { text: '$ init-session --secure', type: 'cmd' as const, delay: 200 },
+  { text: '  Establishing encrypted connection...', type: 'output' as const, delay: 500 },
+  { text: '  ✓ Handshake complete · TLS 1.3 · Session ID: 9f3a7c', type: 'ok' as const, delay: 850 },
+  { text: '$ whoami --remote', type: 'cmd' as const, delay: 1200 },
+  { text: '  vaibhav-makvana@backend.sys', type: 'output' as const, delay: 1450 },
+  { text: '  Role: Python Backend · AI Developer · DevOps Engineer', type: 'output' as const, delay: 1650 },
+  { text: '$ ping vaibhav.sys', type: 'cmd' as const, delay: 2000 },
+  { text: '  PONG — 3ms latency · Status: AVAILABLE · Open to roles', type: 'ok' as const, delay: 2250 },
+  { text: '$ open-channel --priority high', type: 'cmd' as const, delay: 2600 },
+  { text: '  ✓ Email:    vaibhav.r.makvana@gmail.com', type: 'ok' as const, delay: 2900 },
+  { text: '  ✓ LinkedIn: /in/vaibhav-makvana', type: 'ok' as const, delay: 3100 },
+  { text: '  ✓ GitHub:   /makvana-vaibhav', type: 'ok' as const, delay: 3300 },
+  { text: '$ _', type: 'prompt' as const, delay: 3600 },
 ];
 
 function TerminalDisplay() {
@@ -46,7 +49,7 @@ function TerminalDisplay() {
           <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] opacity-40" />
           <div className="w-2.5 h-2.5 rounded-full bg-[#22c55e] opacity-40" />
         </div>
-        <span className="text-[10px] text-[#333] ml-2 tracking-widest uppercase">vaibhav.sys — contact</span>
+        <span className="text-[10px] text-[#333] ml-2 tracking-widest uppercase">open-channel.sys — secure session</span>
         <span className="ml-auto flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
           <span className="text-[10px] text-[#22c55e]">SESSION ACTIVE</span>
@@ -66,6 +69,8 @@ function TerminalDisplay() {
                 ? 'text-[#f97316]'
                 : line.type === 'prompt'
                 ? 'text-[#f97316]'
+                : line.type === 'ok'
+                ? 'text-[#22c55e]'
                 : 'text-[#777]'
             }`}
           >
@@ -136,12 +141,12 @@ export default function ContactTerminal() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-5">
-            <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">05 / Contact</div>
+            <div className="font-mono text-[10px] text-[#f97316] tracking-[0.3em] uppercase">06 / Contact</div>
             <div className="flex-1 h-px bg-[#1c1c1c]" />
           </div>
 
           <h2 className="font-display font-bold text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
-            Open <span className="text-[#f97316]">Channel</span>
+            Open <span className="text-[#f97316]">Communication</span>
           </h2>
           <p className="text-[#666] text-base leading-relaxed max-w-xl font-body">
             If you're building backend systems, AI pipelines, or production infrastructure —
