@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background-color: #060606;
+  color: #efefef;
+  font-family: var(--font-body), Inter, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #060606;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Grid background utility */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+    linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-sm {
+  background-image:
+    linear-gradient(to right, #111111 1px, transparent 1px),
+    linear-gradient(to bottom, #111111 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Status indicator pulse */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 currentColor; }
+  50% { opacity: 0.8; box-shadow: 0 0 0 4px transparent; }
+}
+
+.status-dot {
+  animation: status-pulse 2.5s ease-in-out infinite;
+}
+
+/* Scan line ambient effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.03), transparent);
+  animation: scanline 12s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1.1s step-end infinite;
+}
+
+/* Data flow along SVG paths */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -100; }
+}
+
+.flow-path {
+  stroke-dasharray: 8 12;
+  stroke-dashoffset: 0;
+  animation: dash-flow 2s linear infinite;
+}
+
+/* Orange glow on hover */
+.glow-orange {
+  transition: box-shadow 0.3s ease;
+}
+.glow-orange:hover {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.15), 0 0 60px rgba(249, 115, 22, 0.05);
+}
+
+/* Monospace number display */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Section label styling */
+.section-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f97316;
+  opacity: 0.8;
+}
+
+/* Card border on hover */
+.card-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-hover:hover {
+  border-color: rgba(249, 115, 22, 0.35) !important;
+  box-shadow: 0 8px 40px rgba(249, 115, 22, 0.08), inset 0 1px 0 rgba(249, 115, 22, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Node connection line animation */
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.node-pulse {
+  animation: node-pulse 2s ease-in-out infinite;
+}
+
+/* Boot sequence specific */
+.boot-char {
+  display: inline-block;
+}
+
+/* Smooth gradient overlays */
+.gradient-top {
+  background: linear-gradient(to bottom, #060606 0%, transparent 100%);
+}
+.gradient-bottom {
+  background: linear-gradient(to top, #060606 0%, transparent 100%);
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Frosted panel */
+.panel {
+  background: rgba(13, 13, 13, 0.9);
+  border: 1px solid #1c1c1c;
+  backdrop-filter: blur(12px);
+}
+
+/* Active nav item indicator */
+.nav-indicator {
+  height: 2px;
+  background: #f97316;
+  transition: width 0.3s ease, left 0.3s ease;
+}
