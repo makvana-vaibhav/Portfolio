@@ -113,8 +113,7 @@ export default function EngineeringStack() {
                 System <span className="text-[#f97316]">Capabilities</span>
               </h2>
               <p className="text-[#666] text-base leading-relaxed max-w-xl font-body">
-                What I can build and maintain in production — organized by engineering domain,
-                not by tool collection.
+                Capabilities shaped through production systems, infrastructure failures, and real deployment environments.
               </p>
             </div>
             <div className="border border-[#1c1c1c] rounded-sm px-4 py-2.5 font-mono text-[10px] text-[#444] flex-shrink-0 flex items-center gap-2">

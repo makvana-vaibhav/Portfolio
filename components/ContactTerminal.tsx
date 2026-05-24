@@ -94,28 +94,48 @@ export default function ContactTerminal() {
       label: 'Email',
       value: personal.email,
       href: `mailto:${personal.email}`,
-      icon: '✉',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="1" y="3" width="14" height="10" rx="1.5" />
+          <path d="M1 4.5L8 9.5L15 4.5" />
+        </svg>
+      ),
       desc: 'Direct line — fastest response',
     },
     {
       label: 'LinkedIn',
       value: 'vaibhav-makvana',
       href: personal.linkedin,
-      icon: '⬡',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="1.5" y="1.5" width="13" height="13" rx="2" />
+          <circle cx="5" cy="5.5" r="0.9" fill="currentColor" stroke="none" />
+          <line x1="5" y1="7.5" x2="5" y2="12" />
+          <path d="M8 7.5v4.5M8 9.8a2.3 2.3 0 0 1 4.5 0V12" />
+        </svg>
+      ),
       desc: 'Professional network & updates',
     },
     {
       label: 'GitHub',
       value: 'makvana-vaibhav',
       href: personal.github,
-      icon: '◈',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+      ),
       desc: 'Open source & project code',
     },
     {
       label: 'Phone',
       value: personal.phone,
       href: `tel:${personal.phone.replace(/\s/g, '')}`,
-      icon: '◎',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 1.5h2.8l1.4 3.2-2 1.4c.9 2 2.7 3.7 4.7 4.7l1.4-2 3.2 1.4V12c-.1 1.5-1.2 2.5-2.5 2.5C5.8 14.2 1.8 10.2 1.5 4.5 1.5 3.2 2 2 3 1.5z" />
+        </svg>
+      ),
       desc: 'Available in IST business hours',
     },
   ];
@@ -149,7 +169,7 @@ export default function ContactTerminal() {
             Open <span className="text-[#f97316]">Communication</span>
           </h2>
           <p className="text-[#666] text-base leading-relaxed max-w-xl font-body">
-            If you're building backend systems, AI pipelines, or production infrastructure —
+            If you're building backend systems, AI pipelines, or production infrastructure and need a passionate engineer,
             let's talk. Available for engineering roles and collaborative projects.
           </p>
         </motion.div>
@@ -176,7 +196,7 @@ export default function ContactTerminal() {
                   className="w-8 h-8 rounded-sm border border-[#1c1c1c] group-hover:border-[#f97316]/30 flex items-center justify-center flex-shrink-0 transition-colors duration-200"
                   style={{ background: '#0d0d0d' }}
                 >
-                  <span className="text-[#f97316] opacity-60 text-sm font-mono">{link.icon}</span>
+                  <span className="text-[#f97316] opacity-60 flex items-center justify-center">{link.icon}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-mono text-[9px] text-[#444] tracking-widest uppercase mb-0.5">{link.label}</div>

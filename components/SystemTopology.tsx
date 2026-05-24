@@ -43,7 +43,7 @@ const NODES: NodeDef[] = [
     color: '#555555',
     tech: 'HTTPS / REST',
     status: 'EXTERNAL',
-    desc: 'External API consumer. All inbound traffic enters here — TLS-terminated, rate-limited at the edge.',
+    desc: 'External API consumer. All inbound traffic enters here - TLS-terminated, rate-limited at the edge.',
   },
   {
     id: 'api_gw',
@@ -328,7 +328,7 @@ export default function SystemTopology() {
                 System <span className="text-[#f97316]">Architecture</span>
               </h2>
               <p className="text-[#666] text-base leading-relaxed max-w-xl font-body">
-                A distributed backend system — the kind of infrastructure I design and maintain.
+                A distributed backend system - the kind of infrastructure I design and maintain.
                 Hover any node to inspect it.
               </p>
             </div>

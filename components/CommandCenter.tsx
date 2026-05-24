@@ -133,11 +133,6 @@ export default function CommandCenter() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] status-dot" />
                 <span className="font-mono text-[10px] text-[#22c55e] tracking-widest uppercase">Available</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1 border border-[#1c1c1c] bg-[#0d0d0d] rounded-sm">
-                <span className="font-mono text-[10px] text-[#f97316] tracking-widest uppercase opacity-70">
-                  Rishvi Ltd · Active
-                </span>
-              </div>
             </motion.div>
 
             {/* Name */}
@@ -166,7 +161,7 @@ export default function CommandCenter() {
               className="text-[#888] text-lg leading-relaxed max-w-xl mb-10 font-body"
             >
               Building backend systems, AI pipelines, and cloud infrastructure.
-              Currently at Rishvi Ltd working on production AI systems — image processing,
+              Currently at Rishvi Ltd working on production AI systems, image processing,
               worker orchestration, and DevOps.
             </motion.p>
 

@@ -8,7 +8,7 @@ export const personal = {
   phone: "+91 9106117060",
   github: "https://github.com/makvana-vaibhav",
   linkedin: "https://www.linkedin.com/in/vaibhav-makvana/",
-  instagram: "https://www.instagram.com/vaibhav_.ahir/",
+  instagram: "https://www.instagram.com/vaibhav_.makvana/",
   domain: "vaibhavmakvana.in",
 };
 
@@ -75,7 +75,7 @@ export const systemCapabilities = [
     id: "ai-eng",
     name: "AI Systems Engineering",
     description:
-      "Python-based pipelines for real AI workloads — image enhancement, inference engines, hallucination detection, content classification, and distributed worker orchestration at scale.",
+      "Python-based pipelines for real AI workloads like image enhancement, inference engines, hallucination detection, content classification, and distributed worker orchestration at scale.",
     tools: ["Python 3.11", "AWS SQS", "OpenAI API", "Task Queues", "Image Processing"],
     color: "#f97316",
     marker: "PYTHON · AI",
@@ -84,7 +84,7 @@ export const systemCapabilities = [
     id: "backend-api",
     name: "Backend API Design",
     description:
-      "REST API architecture with clean request lifecycles — auth middleware, rate limiting, error handling, schema validation, and production-level reliability.",
+      "REST API architecture with clean request lifecycles, auth middleware, rate limiting, error handling, schema validation, and production-level reliability.",
     tools: ["Node.js", "Express.js", "Python", "REST", "JWT", "OAuth 2.0"],
     color: "#22c55e",
     marker: "NODE.JS · PYTHON",
@@ -93,7 +93,7 @@ export const systemCapabilities = [
     id: "infra",
     name: "Infrastructure & DevOps",
     description:
-      "End-to-end production deployments on cloud — containerization, automated CI/CD pipelines, reverse proxy configuration, and live system monitoring.",
+      "End-to-end production deployments on cloud containerization, automated CI/CD pipelines, reverse proxy configuration, and live system monitoring.",
     tools: ["AWS", "Docker", "Nginx", "Jenkins", "Linux", "CI/CD"],
     color: "#3b82f6",
     marker: "AWS · DOCKER",
@@ -102,7 +102,7 @@ export const systemCapabilities = [
     id: "databases",
     name: "Database Architecture",
     description:
-      "Schema design for real-world write volumes — indexing strategies, query optimization, connection pooling, and caching layers that don't become bottlenecks.",
+      "Schema design for real-world write volumes, indexing strategies, query optimization, connection pooling, and caching layers that don't become bottlenecks.",
     tools: ["PostgreSQL", "Redis", "MongoDB", "MySQL"],
     color: "#a855f7",
     marker: "POSTGRES · REDIS",
@@ -111,7 +111,7 @@ export const systemCapabilities = [
     id: "frontend",
     name: "Frontend Systems",
     description:
-      "React/TypeScript SPAs when the UI is part of the product — performance-optimized, statically exported, CDN-delivered.",
+      "React/TypeScript SPAs when the UI is part of the product - performance-optimized, statically exported, CDN-delivered.",
     tools: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
     color: "#6b7280",
     marker: "REACT · TS",
@@ -123,30 +123,30 @@ export const experience = [
     id: "rishvi",
     company: "Rishvi Ltd",
     role: "Python Backend Developer · AI Developer · DevOps Engineer",
-    type: "Full-time",
-    period: "May 2026 – Present",
-    location: "Remote",
+
+    period: "May 2026 - Present",
+
     current: true,
     summary: "Working on production AI backend systems in Python and managing cloud infrastructure and DevOps pipelines.",
     aiWork: {
       title: "AI Systems Engineering",
       points: [
-        "Building AI-driven image enhancement pipelines — processing and improving image quality at scale using Python",
-        "Developing hallucination detection and auto-tagging systems for AI-generated content — classification, validation, structured labeling",
-        "Architecting SQS-based distributed worker systems — asynchronous job queuing, worker coordination, failure recovery",
-        "Database design and optimization for high-volume AI workloads — schema design, indexing, query performance tuning",
+        "Building AI-driven image enhancement pipelines - Processing and improving image quality at scale using Python",
+        "Developing hallucination detection and auto-tagging systems for AI-generated content - classification, validation, structured labeling",
+        "Architecting SQS-based distributed worker systems - asynchronous job queuing, worker coordination, failure recovery",
+        "Database design and optimization for high-volume AI workloads - schema design, indexing, query performance tuning",
       ],
     },
     devopsWork: {
       title: "DevOps & Infrastructure",
       points: [
-        "Managing production deployment pipelines on AWS — EC2, S3, environment configuration",
-        "Containerizing services with Docker — building images, compose setups, environment parity between dev and prod",
-        "CI/CD pipeline setup and maintenance — automated testing, build, and deployment workflows",
-        "Monitoring production systems — logs, alerts, service health checks",
+        "Managing production deployment pipelines on AWS - EC2, S3, SQS, CloudFront environment configuration",
+        "Containerizing services with Docker - building images, compose setups, environment parity between dev and prod",
+        "CI/CD pipeline setup and maintenance - automated testing, build, and deployment workflows",
+        "Monitoring production systems - logs, alerts, service health checks",
       ],
     },
-    stack: ["Python", "AWS", "SQS", "Docker", "PostgreSQL", "Redis", "CI/CD"],
+    stack: ["Python", "AWS", "Docker", "Dynamodb", "Redis", "CI/CD", "Nginx", "AI Integration", "SQS Workers"],
   },
 ];
 
@@ -163,7 +163,7 @@ export const projects = [
     archNodes: ["React", "Node.js API", "MongoDB", "TTL Engine", "Nginx"],
     archColor: "#f97316",
     challenge:
-      "TTL index expiration had to be precise at the DB layer — dangling references would corrupt the snippet list. JWT refresh needed careful coordination between React state and the API session lifecycle.",
+      "TTL index expiration had to be precise at the DB layer - dangling references would corrupt the snippet list. JWT refresh needed careful coordination between React state and the API session lifecycle.",
     stack: ["Node.js", "React", "MongoDB", "Docker", "GitHub Actions", "Nginx", "JWT"],
     components: ["JWT Auth", "TTL Expiry", "Docker Deploy", "CI/CD Pipeline", "Rate Limiter", "Nginx Proxy"],
     links: {
@@ -203,11 +203,11 @@ export const projects = [
     archNodes: ["Browser UI", "Service Worker", "chrome.storage", "URL API", "Output"],
     archColor: "#22c55e",
     challenge:
-      "MV3 service workers terminate after 30s inactivity — all in-memory state was lost on idle. Solved by migrating to chrome.storage with a full async message-passing protocol between popup and background context.",
+      "MV3 service workers terminate after 30s inactivity - all in-memory state was lost on idle. Solved by migrating to chrome.storage with a full async message-passing protocol between popup and background context.",
     stack: ["JavaScript", "Chrome APIs", "Manifest V3", "Service Workers", "REST API", "chrome.storage"],
     components: ["Popup UI", "Background Worker", "Storage Manager", "Message Bus", "API Client", "QR Engine"],
     links: {
-      live: "https://spotlink.cc/spotlink",
+      live: null as string | null,
       github: null as string | null,
     },
   },
@@ -218,7 +218,7 @@ export const projects = [
     category: "Offline-First Retail System",
     status: "deployed" as const,
     description:
-      "Offline-first POS running in a live commercial business. SQLite for local persistence, ESC/POS byte-protocol for thermal printer control, atomic stock deduction, and real-time kitchen order routing — no internet required.",
+      "Offline-first POS running in a live commercial business. SQLite for local persistence, ESC/POS byte-protocol for thermal printer control, atomic stock deduction, and real-time kitchen order routing, no internet required.",
     architecture: "POS App → SQLite DB → Billing Engine → ESC/POS Driver → Printer",
     archNodes: ["POS App", "SQLite DB", "Billing Engine", "ESC/POS Driver", "Printer"],
     archColor: "#a855f7",
@@ -243,7 +243,7 @@ export const projects = [
     archNodes: ["Sender", "LAN Discovery", "Transfer Engine", "TCP Stream", "Receiver"],
     archColor: "#f59e0b",
     challenge:
-      "LAN discovery needed UDP broadcast without prior knowledge of active devices. File integrity required checksums for large transfers. Progress tracking had to be non-blocking — separate thread feeding a shared queue read by the UI.",
+      "LAN discovery needed UDP broadcast without prior knowledge of active devices. File integrity required checksums for large transfers. Progress tracking had to be non-blocking separate thread feeding a shared queue read by the UI.",
     stack: ["Python", "Sockets", "UDP Broadcast", "TCP Transfer", "Threading"],
     components: ["Network Discovery", "Transfer Engine", "Progress Tracker", "Checksum Validator", "CLI Interface"],
     links: {
@@ -255,7 +255,7 @@ export const projects = [
 
 export const aboutContent = {
   headline: "I build things that run in production.",
-  description: `Started in frontend — HTML, CSS, JavaScript. Moved into backend systems because I was more interested in
+  description: `Started in frontend HTML, CSS, JavaScript. Moved into backend systems because I was more interested in
   why things break than how they look. Now I work on Python-based AI systems, backend APIs, distributed workers,
   and the infrastructure that holds it all together.`,
   traits: [
@@ -269,7 +269,7 @@ export const aboutContent = {
     },
     {
       title: "Systems over scripts",
-      body: "I think about failure modes, retries, queue backlogs, schema migrations — not just the happy path.",
+      body: "I think about failure modes, retries, queue backlogs, schema migrations not just the happy path.",
     },
     {
       title: "Observability is not optional",
@@ -278,10 +278,10 @@ export const aboutContent = {
   ],
   domains: [
     { label: "AI Backend Systems", desc: "Python pipelines, SQS workers, image processing, task queues" },
-    { label: "REST API Design", desc: "Node.js, Express, PHP — request lifecycle, auth, error handling" },
+    { label: "REST API Design", desc: "Node.js, Express, PHP request lifecycle, auth, error handling" },
     { label: "Database Engineering", desc: "Schema design, indexing, query optimization, migrations" },
     { label: "DevOps & Cloud", desc: "Docker, AWS, CI/CD pipelines, Nginx, Linux server management" },
-    { label: "Frontend Systems", desc: "React, TypeScript, Tailwind — when the UI is part of the product" },
+    { label: "Frontend Systems", desc: "React, TypeScript, Tailwind when the UI is part of the product" },
   ],
   education: "Diploma in Computer Engineering",
   currentStatus: "Available for backend engineering roles and production AI system projects.",

@@ -88,10 +88,6 @@ function ExperienceCard({ job, index }: { job: typeof experience[0]; index: numb
           </div>
           <div className="flex items-center gap-3 flex-wrap">
             <span className="font-mono text-[10px] text-[#444]">{job.period}</span>
-            <span className="font-mono text-[10px] text-[#333]">·</span>
-            <span className="font-mono text-[10px] text-[#444]">{job.type}</span>
-            <span className="font-mono text-[10px] text-[#333]">·</span>
-            <span className="font-mono text-[10px] text-[#444]">{job.location}</span>
           </div>
         </div>
         {/* Stack tags */}
@@ -174,12 +170,12 @@ function FreelanceEntry() {
           <div className="font-mono text-[11px] text-[#f97316] tracking-wider mb-1" style={{ opacity: 0.7 }}>
             Full-Stack Developer · Systems Engineer
           </div>
-          <div className="font-mono text-[10px] text-[#444]">2021 – 2024 · Remote</div>
+          <div className="font-mono text-[10px] text-[#444]">2024 - Present · Remote</div>
         </div>
       </div>
 
       <p className="text-[#666] text-sm leading-relaxed font-body mt-4 mb-4">
-        Designed and delivered end-to-end software for real clients — e-commerce backends, business websites, desktop systems, and browser tools.
+        Designed and delivered end-to-end software for real clients. E-commerce backends, business websites, desktop systems, and browser tools.
         Work ranged from PHP/MySQL backend APIs to offline Python desktop applications deployed in live businesses.
       </p>
 
