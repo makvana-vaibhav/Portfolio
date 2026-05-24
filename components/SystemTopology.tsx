@@ -290,7 +290,7 @@ export default function SystemTopology() {
   return (
     <section
       id="architecture"
-      className="relative py-28"
+      className="relative py-16 md:py-28"
       style={{ background: '#060606' }}
       ref={sectionRef}
     >
@@ -363,8 +363,7 @@ export default function SystemTopology() {
           <div className="p-4 sm:p-6 overflow-x-auto">
             <svg
               viewBox="0 0 780 430"
-              width="100%"
-              style={{ maxWidth: 780, display: 'block', margin: '0 auto' }}
+              style={{ minWidth: '600px', maxWidth: '780px', width: '100%', display: 'block', margin: '0 auto' }}
               xmlns="http://www.w3.org/2000/svg"
             >
               {/* Edge paths */}

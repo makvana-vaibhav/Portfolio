@@ -87,8 +87,7 @@ function MiniArchFlow({ nodes, color, inView }: { nodes: string[]; color: string
   return (
     <svg
       viewBox={`0 0 ${totalW} ${vbH}`}
-      width="100%"
-      style={{ display: 'block', overflow: 'visible' }}
+      style={{ minWidth: `${totalW}px`, width: '100%', display: 'block', overflow: 'visible' }}
     >
       {/* Dashed connector line */}
       <path
@@ -225,7 +224,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <div className="font-mono text-[9px] text-[#2a2a2a] tracking-widest uppercase mb-2">
             Architecture Flow
           </div>
-          <div className="py-1.5">
+          <div className="py-1.5 overflow-x-auto">
             <MiniArchFlow nodes={project.archNodes} color={color} inView={inView} />
           </div>
         </div>
@@ -328,7 +327,7 @@ export default function AISystemsLab() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section id="projects" className="relative py-28" style={{ background: '#060606' }}>
+    <section id="projects" className="relative py-16 md:py-28" style={{ background: '#060606' }}>
       {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-30"

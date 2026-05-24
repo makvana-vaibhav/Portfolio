@@ -78,7 +78,7 @@ export default function EngineeringStack() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section id="stack" className="relative py-28" style={{ background: '#070707' }}>
+    <section id="stack" className="relative py-16 md:py-28" style={{ background: '#070707' }}>
       <div
         className="absolute inset-0 opacity-20"
         style={{

@@ -9,7 +9,7 @@ export default function AboutIdentity() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section id="about" className="relative py-28" style={{ background: '#070707' }}>
+    <section id="about" className="relative py-16 md:py-28" style={{ background: '#070707' }}>
       <div
         className="absolute inset-0 opacity-20"
         style={{

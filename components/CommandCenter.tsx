@@ -118,8 +118,8 @@ export default function CommandCenter() {
       {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.04] bg-[#f97316] blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 py-32 w-full">
-        <div className="grid lg:grid-cols-[1fr_300px] gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-32 w-full">
+        <div className="grid lg:grid-cols-[1fr_300px] gap-8 lg:gap-12 items-center">
 
           {/* Left: Identity */}
           <motion.div

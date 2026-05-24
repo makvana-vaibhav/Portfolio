@@ -9,7 +9,7 @@ export default function Experience() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section id="experience" className="relative py-28" style={{ background: '#060606' }}>
+    <section id="experience" className="relative py-16 md:py-28" style={{ background: '#060606' }}>
       <div
         className="absolute inset-0 opacity-25"
         style={{

@@ -57,14 +57,15 @@ function TerminalDisplay() {
       </div>
 
       {/* Terminal body */}
-      <div className="p-5 space-y-0.5 min-h-[260px]">
+      <div className="p-5 min-h-[260px] overflow-x-auto">
+        <div className="space-y-0.5 min-w-max">
         {terminalLines.map((line, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0 }}
             animate={visible.includes(i) ? { opacity: 1 } : {}}
             transition={{ duration: 0.2 }}
-            className={`text-xs leading-relaxed ${
+            className={`text-xs leading-relaxed whitespace-nowrap ${
               line.type === 'cmd'
                 ? 'text-[#f97316]'
                 : line.type === 'prompt'
@@ -80,6 +81,7 @@ function TerminalDisplay() {
             )}
           </motion.div>
         ))}
+        </div>
       </div>
     </div>
   );
@@ -141,7 +143,7 @@ export default function ContactTerminal() {
   ];
 
   return (
-    <section id="contact" className="relative py-28" style={{ background: '#070707' }}>
+    <section id="contact" className="relative py-16 md:py-28" style={{ background: '#070707' }}>
       <div
         className="absolute inset-0 opacity-20"
         style={{

@@ -23,28 +23,32 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Vaibhav Makvana | AI Backend & Infrastructure Engineer',
-  description: 'Engineering production AI systems, distributed backends, and scalable infrastructure. Based in India.',
-  keywords: ['AI Engineer', 'Backend Engineer', 'Infrastructure', 'Python', 'Node.js', 'Full Stack', 'Vaibhav Makvana'],
+  title: 'Vaibhav Makvana | Python Backend & AI Systems Developer',
+  description: 'Python Backend & AI Systems Developer. Building production AI pipelines, distributed workers, backend APIs, and cloud infrastructure. Currently at Rishvi Ltd.',
+  keywords: ['Vaibhav Makvana', 'Python Backend Developer', 'AI Systems', 'Backend Engineer', 'DevOps', 'AWS', 'Docker', 'SQS', 'PostgreSQL', 'Node.js'],
   authors: [{ name: 'Vaibhav Makvana' }],
   creator: 'Vaibhav Makvana',
+  metadataBase: new URL('https://vaibhavmakvana.in'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://vaibhavmakvana.in',
-    title: 'Vaibhav Makvana | AI Backend & Infrastructure Engineer',
-    description: 'Engineering production AI systems, distributed backends, and scalable infrastructure.',
+    title: 'Vaibhav Makvana | Python Backend & AI Systems Developer',
+    description: 'Building production AI pipelines, distributed workers, backend APIs, and cloud infrastructure.',
     siteName: 'Vaibhav Makvana',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vaibhav Makvana | AI Backend & Infrastructure Engineer',
-    description: 'Engineering production AI systems, distributed backends, and scalable infrastructure.',
+    title: 'Vaibhav Makvana | Python Backend & AI Systems Developer',
+    description: 'Building production AI pipelines, distributed workers, backend APIs, and cloud infrastructure.',
+    creator: '@vaibhav_makvana',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true },
   },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
