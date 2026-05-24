@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Right: year + name */}
           <div className="font-mono text-[10px] text-[#333] tracking-wider">
-            © 2025 {personal.name}
+            © 2026 {personal.name}
           </div>
         </div>
 
