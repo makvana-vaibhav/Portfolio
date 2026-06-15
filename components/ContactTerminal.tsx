@@ -128,18 +128,7 @@ export default function ContactTerminal() {
         </svg>
       ),
       desc: 'Open source & project code',
-    },
-    {
-      label: 'Phone',
-      value: personal.phone,
-      href: `tel:${personal.phone.replace(/\s/g, '')}`,
-      icon: (
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 1.5h2.8l1.4 3.2-2 1.4c.9 2 2.7 3.7 4.7 4.7l1.4-2 3.2 1.4V12c-.1 1.5-1.2 2.5-2.5 2.5C5.8 14.2 1.8 10.2 1.5 4.5 1.5 3.2 2 2 3 1.5z" />
-        </svg>
-      ),
-      desc: 'Available in IST business hours',
-    },
+    }
   ];
 
   return (
