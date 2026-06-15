@@ -13,10 +13,6 @@ export default function Footer() {
             <span className="text-white text-sm font-semibold tracking-widest">{personal.handle}</span>
           </div>
 
-          {/* Center: build info */}
-          <div className="font-mono text-[10px] text-[#333] tracking-wider text-center">
-            Built with Next.js · TypeScript · Tailwind CSS · Framer Motion
-          </div>
 
           {/* Right: year + name */}
           <div className="font-mono text-[10px] text-[#333] tracking-wider">
